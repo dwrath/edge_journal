@@ -1,22 +1,29 @@
 'use client'
-import {Nav_Items} from "@/lib/constant";
+
+import {NAV_ITEMS} from "@/lib/constants";
 import Link from "next/link";
 import {usePathname} from "next/navigation";
 
 const NavItems = () => {
-    const pathName = usePathname()
-    const isActive = (path: string) => {
-        if(path === '/ ') return pathName === '/';
+    const pathname = usePathname()
 
-        return path.startsWith(path);
-    };
+    const isActive = (path: string) => {
+        if (path === '/') return pathname === '/';
+
+        return pathname.startsWith(path);
+    }
+
     return (
         <ul className="flex flex-col sm:flex-row p-2 gap-3 sm:gap-10 font-medium">
-            {Nav_Items.map(({href, label})=> (<li key={href}>
-                <Link href={href} className={`hover:text-yellow-500 transition-colors ${isActive(href) ? 'text-gray-100' : ''}` }>
-                    {label}
-                </Link>
-            </li>)) }
+            {NAV_ITEMS.map(({ href, label }) => (
+                <li key={href}>
+                    <Link href={href} className={`hover:text-yellow-500 transition-colors ${
+                        isActive(href) ? 'text-gray-100' : ''
+                    }`}>
+                        {label}
+                    </Link>
+                </li>
+            ))}
         </ul>
     )
 }
