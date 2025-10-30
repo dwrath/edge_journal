@@ -5,6 +5,7 @@ import {getAllUsersForNewsEmail} from "@/lib/actions/user.actions";
 import { getWatchlistSymbolsByEmail } from "@/lib/actions/watchlist.actions";
 import { getNews } from "@/lib/actions/finnhub.actions";
 import { getFormattedTodayDate } from "@/lib/utils";
+
 export const sendSignUpEmail = inngest.createFunction(
     { id: 'sign-up-email' },
     { event: 'app/user.created'},
@@ -33,7 +34,7 @@ export const sendSignUpEmail = inngest.createFunction(
 
         await step.run('send-welcome-email', async () => {
             const part = response.candidates?.[0]?.content?.parts?.[0];
-            const introText = (part && 'text' in part ? part.text : null) ||'Thanks for joining Edge Journal. You now have the tools to track markets and make smarter moves.'
+            const introText = (part && 'text' in part ? part.text : null) ||'Thanks for joining Signalist. You now have the tools to track markets and make smarter moves.'
 
             const { data: { email, name } } = event;
 
@@ -46,7 +47,6 @@ export const sendSignUpEmail = inngest.createFunction(
         }
     }
 )
-
 
 export const sendDailyNewsSummary = inngest.createFunction(
     { id: 'daily-news-summary' },

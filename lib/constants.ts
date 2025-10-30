@@ -1,7 +1,7 @@
 export const NAV_ITEMS = [
     { href: '/', label: 'Dashboard' },
     { href: '/search', label: 'Search' },
-    { href: '/watchlist', label: 'Watchlist' },
+    // { href: '/watchlist', label: 'Watchlist' },
 ];
 
 // Sign-up form select options
@@ -52,7 +52,7 @@ export const MARKET_OVERVIEW_WIDGET_CONFIG = {
     belowLineFillColorFalling: 'rgba(41, 98, 255, 0.12)', // fill under line when falling
     belowLineFillColorGrowingBottom: 'rgba(41, 98, 255, 0)',
     belowLineFillColorFallingBottom: 'rgba(41, 98, 255, 0)',
-    symbolActiveColor: 'rgba(15, 237, 190, 0.05)', // highlight color for active symbol
+    symbolActiveColor: 'rgba(15, 237, 190, 0.05)', // highlight color for active [symbol]
     tabs: [
         {
             title: 'Financial',
